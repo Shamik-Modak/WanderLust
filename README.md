@@ -1,1 +1,1 @@
-# Smart-Expense-Tracker
+# WanderLust
