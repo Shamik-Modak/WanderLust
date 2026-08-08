@@ -95,6 +95,10 @@ app.use((req, res, next) => {
 //    let registerdUser= await User.register(fakeUser,"hello");
 //    res.send(registerdUser);
 // })
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews/", reviewRouter);
@@ -126,10 +130,6 @@ router.route("/login")
 
 router.get("/logout",userController.logout)
 module.exports = router;
-
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
 
 app.all("*path", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
